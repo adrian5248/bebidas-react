@@ -1,5 +1,6 @@
-import { ChangeEvent, useMemo, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useAppStore } from "../stores/useAppStore";
 
 export default function Header() {
 
@@ -10,6 +11,14 @@ export default function Header() {
         category: ''
     })
 
+    const categories = useAppStore((state) => state.categories)
+    const fetchCategories = useAppStore((state) => state.fetchCategories)
+
+    useEffect(() => {
+        fetchCategories()
+    }, [])
+
+
     function handleChance(
         e: ChangeEvent<HTMLInputElement> |
         ChangeEvent<HTMLSelectElement>){
@@ -17,6 +26,8 @@ export default function Header() {
             ...searchFilters, [e.target.name]: e.target.value
         })
     }
+
+    function handleS
 
 return (
     <header className={ isHome? 'bg-header bg-cover bg-center' : 'bg-slate-800'}>
@@ -71,6 +82,14 @@ return (
                     className="p-3 w-full rounded-lg focus:outline-none"
                     >
                         <option value="">-- Seleccione --</option>
+                        {
+                            categories.drinks.map(category => (
+                                <option
+                                key={category.strCategory}
+                                value={category.strCategory}>{category.strCategory}</option>
+                            ))//aqui se hace funcional la lista de las categorias, ara que pueda ir haciendo la seleccion de las 
+                            //categorias
+                        }
                     </select>
                 </div>
                 <input
@@ -80,6 +99,3 @@ return (
             </form>
             )}
         </div>
-    </header>
-    )
-}

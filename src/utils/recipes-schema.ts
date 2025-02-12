@@ -1,4 +1,4 @@
-import { string, z } from "zod";
+import { z } from "zod";
 
 export const CategoriesAPIResponseSchema = z.object({
     drinks: z.array(
@@ -18,8 +18,6 @@ export const DrinkSchema = z.object({
     strDrink: z.string(),
     strDrinkThumb: z.string(),
 })
-
-
 
 export const RecipesAPIResponseSchema = z.object({
     drinks: z.array(

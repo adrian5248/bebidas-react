@@ -6,3 +6,4 @@ export type Categories = z.infer<typeof CategoriesAPIResponseSchema>
 export type SearchFilters = z.infer<typeof SearchFiltersSchema>
 export type Recipes = z.infer<typeof RecipesAPIResponseSchema>
 export type Drink = z.infer<typeof DrinkSchema>
+export type Recipe = z.infer<typeof RecipesAPIResponseSchema>

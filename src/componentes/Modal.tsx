@@ -86,7 +86,7 @@ export default function Modal() {
                         addFavorites(selectedRecipe)
                         closeModal()
                       }}
-                      className='bg-orange-400 hover:bg-orange-800 rounded w-full p-3 text-white uppercase'
+                      className='bg-slate-950 hover:bg-slate-950 rounded w-full p-3 text-white uppercase'
                       type="button">{favoriteExist(selectedRecipe.idDrink)?
                         'Agregar a ':
                         'Eliminar de '

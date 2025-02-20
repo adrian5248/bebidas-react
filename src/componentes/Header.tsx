@@ -15,6 +15,7 @@ export default function Header() {
     const fetchCategories = useAppStore((state) => state.fetchCategories)
     const searchRecipes = useAppStore(state => state.searchRecipes)
 
+
     useEffect(() => {
         fetchCategories()
     }, [])
@@ -51,13 +52,13 @@ return (
                     <NavLink
                         className={({ isActive }) =>
                             isActive ?
-                            "text-orange-400 uppercase font-bold":
+                            "text-gray-50 uppercase font-bold":
                             "text-white uppercase font-bold"}
                         to='/'>Home</NavLink>
                     <NavLink 
                         className={({ isActive }) =>
                             isActive ?
-                            "text-orange-400 uppercase font-bold":
+                            "text-white uppercase font-bold":
                             "text-white uppercase font-bold"}
                         to='/favoritos'>Favoritos</NavLink>
                 </nav>
@@ -65,7 +66,7 @@ return (
             { isHome && (
                 <form
                 onSubmit={handleSubmit}
-                className="md:w-1/2 2xl:w-1/3 bg-orange-400 my-32 p-10 rounded-lg shadow space-y-6">
+                className="md:w-1/2 2xl:w-1/3 bg-gray-800 my-32 p-10 rounded-lg shadow space-y-6">
                 <div className="space-y-4">
                 <label
                     htmlFor="ingredient"
@@ -107,7 +108,7 @@ return (
 
                 <input
                 type="submit"
-                className="cursor-pointer bg-orange-800 hover:bg-orange-900 text-white font-extrabold w-full p-2 rounded-lg uppercase"
+                className="cursor-pointer bg-slate-600 hover:bg-slate-600 text-white font-extrabold w-full p-2 rounded-lg uppercase"
                 value="Buscar Recetas" />
             </form>
             )}
